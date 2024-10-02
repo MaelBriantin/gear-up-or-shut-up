@@ -1,13 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html id="html-root" lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+    <style>
+      :root {
+        --background-color-dark: #121212;
+        --text-color-dark: #ffffff;
+        --background-color-light: #ffffff;
+        --text-color-light: #000000;
+      }
+
+      [data-theme="dark"] {
+        background-color: var(--background-color-dark);
+        color: var(--text-color-dark);
+      }
+
+      [data-theme="light"] {
+        background-color: var(--background-color-light);
+        color: var(--text-color-light);
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </body>
 </html>
