@@ -1,0 +1,1 @@
+export type { RouteConfigInterface } from '@/types/routeConfigInterface';
