@@ -7,7 +7,7 @@ type LayoutPropsType = {
 export const Layout = (props: LayoutPropsType) => {
     const { children } = props;
     return (
-        <main className="container">
+        <main className="main-layout">
             {children}
             <ThemeToggle />
         </main>

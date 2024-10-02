@@ -1,12 +1,7 @@
-import useThemeStore from "@/stores/themeStore";
-import { capitalize } from "@utils";
-
 export const HomePage = () => {
-    const { theme } = useThemeStore();
-
     return (
         <h1>
-            {capitalize(theme)} / Home Page
+            Prepare yourself for a new Varquest Dungeon Adventure!
         </h1>
     );
 };

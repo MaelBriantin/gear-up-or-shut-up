@@ -14,8 +14,8 @@ export const ThemeToggle = () => {
   }, [theme]);
 
   return (
-    <button onClick={toggleTheme}>
-      {theme === 'dark' ? '🌞' : '🌕'}
-    </button>
+    <div onClick={toggleTheme} className={`theme-toggle ${theme === 'dark' ? 'light-theme' : 'dark-theme'}`}>
+      <span>{theme === 'dark' ? 'Light' : 'Dark'} Mode</span>
+    </div>
   );
 };
