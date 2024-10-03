@@ -1,11 +1,11 @@
-import useThemeStore from "@/stores/themeStore";
-import { capitalize } from "@/utils";
+import data from './data.json';
+import { jsonToHtml } from '@utils';
+import './index.css';
 
 export const HomePage = () => {
-    const { theme } = useThemeStore();
     return (
-        <h1>
-            {capitalize(theme)} Theme
-        </h1>
+        <main className='home-container'>
+            {jsonToHtml(data, 'home')}
+        </main>
     );
 };

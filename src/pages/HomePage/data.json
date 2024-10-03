@@ -1,0 +1,16 @@
+{
+    "title": {
+    "content": "Welcome to Varquest Dungeon",
+    "htmlTag": "h1",
+    "className": "home-title"
+    },
+    "subtitle": {
+        "content": "What is Varquest Dungeon?",
+        "htmlTag": "h2",
+        "className": "home-subtitle"
+        },
+    "description": {
+        "content": "Varquest Dungeon is a game where you can create your own character and explore a dungeon. You will have to fight monsters, solve puzzles and find treasures. The game is still in development and new features will be added regularly.",
+        "htmlTag": "p"
+    }
+}
