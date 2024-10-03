@@ -1,17 +1,29 @@
 import { RouteConfigInterface } from '@types';
 import { 
   HomePage, 
-  TestPage 
+  PlayPage,
+  NotFoundPage
 } from '@pages';
+import { MainLayout } from './layouts/MainLayout';
 
 
 export const routes: RouteConfigInterface[] = [
   {
-    path: '/',
-    element: <HomePage />,
-  },
-  {
-    path: '/test',
-    element: <TestPage />,
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        path: '*',
+        element: <NotFoundPage />,
+      },
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/play',
+        element: <PlayPage />,
+      },
+    ],
   },
 ];
