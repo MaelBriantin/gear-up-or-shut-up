@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Loading: React.FC = () => {
+export const LoadingPage: React.FC = () => {
   return (
     <div className="loading-container">
       <p>Loading...</p>

@@ -4,13 +4,13 @@ import {
   PlayPage,
   NotFoundPage
 } from '@pages';
-import { Layout } from './layouts/Layout';
+import { MainLayout } from './layouts/MainLayout';
 
 
 export const routes: RouteConfigInterface[] = [
   {
     path: "/",
-    element: <Layout />,
+    element: <MainLayout />,
     children: [
       {
         path: '*',

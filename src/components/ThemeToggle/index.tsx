@@ -1,11 +1,12 @@
 import React from 'react';
 import useThemeStore from '@/stores/themeStore';
+import './index.css';
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useThemeStore();
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    const newTheme = theme === 'dark' ? 'light' : theme === 'light' ? 'darkest' : 'dark';
     setTheme(newTheme);
   };
 
@@ -14,8 +15,8 @@ export const ThemeToggle = () => {
   }, [theme]);
 
   return (
-    <div onClick={toggleTheme} className={`theme-toggle ${theme === 'dark' ? 'light-theme' : 'dark-theme'}`}>
-      <span>{theme === 'dark' ? 'Light' : 'Dark'} Mode</span>
+    <div onClick={toggleTheme} className={`theme-toggle ${theme !== 'light' ? 'light-theme' : 'dark-theme'}`}>
+      <span>{theme === 'dark' ? 'Light' : theme === 'light' ? 'OLED' : 'Dark'} Mode</span>
     </div>
   );
 };

@@ -1,0 +1,14 @@
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}

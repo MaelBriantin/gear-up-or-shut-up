@@ -1,5 +1,6 @@
 import useThemeStore from "@/stores/themeStore";
 import { useNavigate } from "react-router-dom";
+import './index.css';
 
 export const NotFoundPage = () => {
     const { theme } = useThemeStore();
@@ -9,7 +10,7 @@ export const NotFoundPage = () => {
           <h1>404 - Page Not Found</h1>
           <p>This aren't the droids you're looking for.</p>
           <div 
-            className={`simple-button ${theme === 'dark' ? 'light-theme' : 'dark-theme'}`}
+            className={`simple-button ${theme !== 'light' ? 'light-theme' : 'dark-theme'}`}
             style={{ marginTop: '1rem', width: '100px' }}
             onClick={() => navigate('/')}
             >Go Home
