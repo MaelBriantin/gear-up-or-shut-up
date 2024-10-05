@@ -1,0 +1,13 @@
+{
+    "theme": {
+        "dark": "Sombre",
+        "light": "Clair",
+        "darkest": "Très sombre"
+    },
+    "button": {
+        "go_home": "Rentre chez toi",
+        "loading": "Chargement",
+        "disabled": "Désactivé",
+        "play": "Jouer" 
+    }
+}

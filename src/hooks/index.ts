@@ -1,0 +1,1 @@
+export { useData } from '@/hooks/useData';

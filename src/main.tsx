@@ -1,8 +1,10 @@
+import { StrictMode, createRoot, Suspense } from '@lib';
 import { App } from '@/App';
-import { StrictMode, createRoot } from '@lib';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Suspense fallback={<div>Loading...</div>}>
+      <App />
+    </Suspense>
   </StrictMode>,
 );

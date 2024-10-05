@@ -1,0 +1,13 @@
+{
+    "theme": {
+        "dark": "Dark",
+        "light": "Light",
+        "darkest": "Darkest"
+    },
+    "button": {
+        "go_home": "Go Home",
+        "loading": "Loading",
+        "disabled": "Disabled",
+        "play": "Play"
+    }
+}

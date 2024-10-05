@@ -1,5 +1,5 @@
 import React from 'react';
-import useThemeStore from '@/stores/themeStore';
+import { useThemeStore } from '@/stores';
 import { capitalize } from '@/utils';
 
 export const ThemeSelector = () => {
