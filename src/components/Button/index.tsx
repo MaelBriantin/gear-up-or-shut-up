@@ -15,7 +15,7 @@ export const Button = (props: ButtonPropsType) => {
     return (
         <button
             type={type || 'button'}
-            onClick={disabled ? undefined : onClick}
+            onClick={disabled || loading ? undefined : onClick}
             className={`
                 ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
                 ${loading ? 'cursor-wait min-w-20' : ''}
