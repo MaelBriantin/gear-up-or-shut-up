@@ -4,14 +4,16 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@styles/*": ["src/styles/*"],
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
+      "@styles": ["src/styles"],
+      "@components": ["src/components"],
+      "@pages*": ["src/pages"],
       "@pages": ["src/pages"],
-      "@lib/*": ["src/lib/*"],
       "@lib": ["src/lib"],
       "@types": ["src/types"],
       "@utils": ["src/utils"],
+      "@hooks*": ["src/hooks"],
+      "@data": ["src/data"],
+      "@stores": ["src/stores"],
     }
   },
   "references": [

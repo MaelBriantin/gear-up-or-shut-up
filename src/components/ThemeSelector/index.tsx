@@ -1,6 +1,6 @@
 import React from 'react';
-import useThemeStore from '@/stores/themeStore';
-import { capitalize } from '@/utils';
+import { useThemeStore } from '@/stores';
+import { ThemeOption } from './ThemeOption';
 
 export const ThemeSelector = () => {
   const { theme, themeOptions, setTheme } = useThemeStore();
@@ -37,12 +37,7 @@ export const ThemeSelector = () => {
       `}
     >
       {themeOptions.map((option) => (
-        <div 
-          onClick={() => setTheme(option)} key={option} 
-          className={`${theme !== option ? 'cursor-pointer hover:opacity-75' : 'cursor-default'}`}
-        >
-          <span className={option === theme ? 'opacity-1' : 'opacity-0'}>[</span>{capitalize(option)}<span className={option === theme ? 'opacity-1' : 'opacity-0'}>]</span>
-        </div>
+          <ThemeOption key={option} option={option} theme={theme} setTheme={setTheme} />
       ))}
     </div>
   );

@@ -6,7 +6,7 @@ interface ThemeState {
   setTheme: (theme: 'light' | 'dark' | 'darkest') => void;
 }
 
-const useThemeStore = create<ThemeState>((set) => ({
+export const useThemeStore = create<ThemeState>((set) => ({
   theme: localStorage.getItem('theme') as 'dark' | 'light' | 'darkest' || 'dark',
   themeOptions: ['light', 'dark', 'darkest'],
   setTheme: (theme) => {
@@ -14,5 +14,3 @@ const useThemeStore = create<ThemeState>((set) => ({
     set({ theme });
   },
 }));
-
-export default useThemeStore;
