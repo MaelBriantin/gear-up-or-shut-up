@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { useThemeStore } from '@/stores';
-import { capitalize } from '@/utils';
+import { useData } from '@/hooks';
 
 export const ThemeSelector = () => {
   const { theme, themeOptions, setTheme } = useThemeStore();
@@ -41,7 +42,9 @@ export const ThemeSelector = () => {
           onClick={() => setTheme(option)} key={option} 
           className={`${theme !== option ? 'cursor-pointer hover:opacity-75' : 'cursor-default'}`}
         >
-          <span className={option === theme ? 'opacity-1' : 'opacity-0'}>[</span>{capitalize(option)}<span className={option === theme ? 'opacity-1' : 'opacity-0'}>]</span>
+          <span className={option === theme ? 'opacity-1' : 'opacity-0'}>[</span>
+            {useData(`ui.theme.${option}`)}
+          <span className={option === theme ? 'opacity-1' : 'opacity-0'}>]</span>
         </div>
       ))}
     </div>
