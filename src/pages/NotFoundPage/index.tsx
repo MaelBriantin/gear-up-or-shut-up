@@ -1,20 +1,26 @@
-import useThemeStore from "@/stores/themeStore";
 import { useNavigate } from "react-router-dom";
-import './index.css';
+import { Button } from "@/components/Button";
+import data from './data.json';
 
 export const NotFoundPage = () => {
-    const { theme } = useThemeStore();
+
+    const catchRandomPhrase = () => {
+        const randomIndex = Math.floor(Math.random() * data.catchPhrases.length);
+        return data.catchPhrases[randomIndex];
+    }
+
     const navigate = useNavigate();
     return (
-        <div className="not-found-container">
-          <h1>404 - Page Not Found</h1>
-          <p>This aren't the droids you're looking for.</p>
-          <div 
-            className={`simple-button ${theme !== 'light' ? 'light-theme' : 'dark-theme'}`}
-            style={{ marginTop: '1rem', width: '100px' }}
-            onClick={() => navigate('/')}
-            >Go Home
-            </div>
+        <div className="mx-auto p-4 flex flex-col items-center justify-center gap-4">
+            <h1 className="text-4xl font-bold">
+                404 - Page Not Found
+            </h1>
+            <p className="text-lg italic">
+                {catchRandomPhrase()}
+            </p>
+            <Button onClick={() => navigate('/')}>
+                Go Home
+            </Button>
         </div>
     );
 }
