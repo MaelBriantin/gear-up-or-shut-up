@@ -9,14 +9,14 @@ export const HomePage = () => {
     const [loading, setLoading] = useState(false);
 
     return (
-        <main className="flex flex-col items-start justify-center h-screen gap-12 w-2/5 mx-auto p-4">
+        <main className="flex flex-col items-start justify-center gap-12 mx-auto p-4 md:w-6/12">
             <h1 className="text-4xl w-full font-bold flex justify-center">
                 {useData('home.title')}
             </h1>
             <h2 className="text-2xl w-full flex justify-start items-center underline">
                 {useData('home.subtitle')}
             </h2>
-            <article className="flex flex-col w-full justify-center items-start">
+            <article className="flex flex-col w-full justify-center items-start text-justify">
                 <p className="text-lg">{useData('home.paragraphs.1')}</p>
                 <p className="text-lg">{useData('home.paragraphs.2')}</p>
             </article>
@@ -34,7 +34,7 @@ export const HomePage = () => {
                 <Button onClick={() => {}} 
                     disabled 
                 >
-                    {useData('Sword of Damocles')}
+                    {useData('Sword of Damocles wewewadawdawdawdadawdsssssssssssssss')}
                 </Button>
             </div>
         </main>

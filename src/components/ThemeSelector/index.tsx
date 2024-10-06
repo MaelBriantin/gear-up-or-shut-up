@@ -1,6 +1,7 @@
 import React from 'react';
 import { useThemeStore } from '@/stores';
 import { ThemeOption } from './ThemeOption';
+import { InterfaceOptionContainer } from '@components';
 
 export const ThemeSelector = () => {
   const { theme, themeOptions, setTheme } = useThemeStore();
@@ -30,15 +31,10 @@ export const ThemeSelector = () => {
   }, [theme]);
 
   return (
-    <div
-      className={`
-        bg-backgroundReverse text-textReverse
-        flex justify-between items-center absolute top-4 right-4 px-4 py-2 rounded-[4px] text-sm gap-6
-      `}
-    >
+    <InterfaceOptionContainer>
       {themeOptions.map((option) => (
           <ThemeOption key={option} option={option} theme={theme} setTheme={setTheme} />
       ))}
-    </div>
+    </InterfaceOptionContainer>
   );
 };

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-type Language = 'en' | 'fr';
+export type Language = 'en' | 'fr';
 
 interface LanguageState {
     language: Language;
