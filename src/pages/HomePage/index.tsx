@@ -20,21 +20,32 @@ export const HomePage = () => {
                 <p className="text-lg">{useData('home.paragraphs.1')}</p>
                 <p className="text-lg">{useData('home.paragraphs.2')}</p>
             </article>
-            <div className="w-full flex gap-4 justify-center mt-4">
+            <div className="
+                md:w-full 
+                flex 
+                gap-4 
+                md:justify-center
+                items-center
+                mx-auto
+                w-full
+                mt-4 
+                md:flex-row 
+                flex-col
+            ">
                 <Button onClick={() => navigate('/play')}>
                     {useData('ui.button.play')}
                 </Button>
                 <Button 
                     onClick={() => setLoading(!loading)} 
                     loading={loading} 
-                    className='w-28' 
+                    className='w-32' 
                 >
                     {useData('ui.button.loading')}
                 </Button>
                 <Button onClick={() => {}} 
                     disabled 
                 >
-                    {useData('Sword of Damocles wewewadawdawdawdadawdsssssssssssssss')}
+                    {useData('Sword of Damocles')}
                 </Button>
             </div>
         </main>
