@@ -17,6 +17,7 @@ export const Button = (props: ButtonPropsType) => {
             type={type || 'button'}
             onClick={disabled || loading ? undefined : onClick}
             className={`
+                overflow-hidden whitespace-nowrap text-ellipsis max-w-40
                 ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
                 ${loading ? 'cursor-wait min-w-20' : ''}
                 ${!loading && !disabled ? 'hover:opacity-75' : ''}
@@ -29,7 +30,10 @@ export const Button = (props: ButtonPropsType) => {
             {loading ? (
                 <LoadingDots />
             ) : (
-                children
+                <span
+                    className="truncate"
+                >{children}
+                </span>
             )}
         </button>
     );
