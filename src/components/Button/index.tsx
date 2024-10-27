@@ -1,7 +1,7 @@
 import { LoadingDots } from "./LoadingDots";
 
 type ButtonPropsType = {
-    children: string;
+    children: string | React.ReactNode | undefined;
     onClick?: () => void;
     disabled?: boolean;
     loading?: boolean;
@@ -31,7 +31,7 @@ export const Button = (props: ButtonPropsType) => {
                 <LoadingDots />
             ) : (
                 <span
-                    className="truncate"
+                    className="truncate select-none"
                 >{children}
                 </span>
             )}

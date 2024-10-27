@@ -9,36 +9,25 @@ export const HomePage = () => {
     const [loading, setLoading] = useState(false);
 
     return (
-        <main className="flex flex-col items-start justify-center gap-12 mx-auto p-4 md:w-6/12">
-            <h1 className="text-4xl w-full font-bold flex justify-center">
+        <main className="flex flex-col items-start justify-center gap-12 p-4 mx-auto md:w-6/12">
+            <h1 className="flex justify-center w-full text-4xl font-bold">
                 {useData('home.title')}
             </h1>
-            <h2 className="text-2xl w-full flex justify-start items-center underline">
+            <h2 className="flex items-center justify-start w-full text-2xl underline">
                 {useData('home.subtitle')}
             </h2>
-            <article className="flex flex-col w-full justify-center items-start text-justify">
+            <article className="flex flex-col items-start justify-center w-full text-justify">
                 <p className="text-lg">{useData('home.paragraphs.1')}</p>
                 <p className="text-lg">{useData('home.paragraphs.2')}</p>
             </article>
-            <div className="
-                md:w-full 
-                flex 
-                gap-4 
-                md:justify-center
-                items-center
-                mx-auto
-                w-full
-                mt-4 
-                md:flex-row 
-                flex-col
-            ">
+            <div className="flex flex-col items-center w-full gap-4 mx-auto mt-4 md:w-full md:justify-center md:flex-row">
                 <Button onClick={() => navigate('/play')}>
                     {useData('ui.button.play')}
                 </Button>
                 <Button 
                     onClick={() => setLoading(!loading)} 
                     loading={loading} 
-                    className='w-32' 
+                    className='w-32'
                 >
                     {useData('ui.button.loading')}
                 </Button>
