@@ -12,7 +12,8 @@ export const InterfaceOptionContainer = (props: InterfaceOptionContainerProps) =
             className={`
                 bg-backgroundReverse text-textReverse
                 flex justify-between items-center 
-                px-4 py-2 rounded-[4px] text-sm gap-4
+                px-4 rounded-[4px] h-8 text-sm gap-4
+                select-none
                 w-fit ${className}
             `}
         >

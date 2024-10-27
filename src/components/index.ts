@@ -1,5 +1,5 @@
 export { InterfaceOptionContainer } from './InterfaceOptionContainer';
-export { SettingsInterface } from './SettingsInterface';
+export { OptionsInterface } from './OptionsInterface';
 export { LanguageSelector } from './LanguageSelector';
 export { ThemeSelector } from './ThemeSelector';
 
