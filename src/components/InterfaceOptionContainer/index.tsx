@@ -10,7 +10,7 @@ export const InterfaceOptionContainer = (props: InterfaceOptionContainerProps) =
     return (
         <div
             className={`
-                bg-backgroundReverse text-textReverse
+                bg-zinc-800 text-white dark:bg-white dark:text-black
                 flex justify-between items-center 
                 px-4 rounded-[4px] h-8 text-sm gap-4
                 select-none

@@ -23,7 +23,7 @@ export const Button = (props: ButtonPropsType) => {
                 ${!loading && !disabled ? 'hover:opacity-75' : ''}
                 flex justify-center items-center
                 text-sm px-4 rounded-[4px] h-8
-                bg-backgroundReverse text-textReverse
+                bg-zinc-800 text-white dark:bg-white dark:text-black
                 ${className}
             `}
             >

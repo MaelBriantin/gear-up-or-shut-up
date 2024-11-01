@@ -1,39 +1,63 @@
-import React from 'react';
-import { useThemeStore } from '@/stores';
 import { ThemeOption } from './ThemeOption';
 import { InterfaceOptionContainer } from '@components';
+import React, { useEffect } from 'react';
 
 export const ThemeSelector = () => {
-  const { theme, themeOptions, setTheme } = useThemeStore();
+  const [theme, setTheme] = React.useState<'system' | 'dark' | 'light'>(() => {
+    const localTheme = localStorage.getItem('theme') as 'dark' | 'light' | 'system';
+    return localTheme || 'system';
+  });
+  const themeOptions: Array<'system' | 'dark' | 'light'> = ['system', 'dark', 'light'];
 
-  React.useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.style.setProperty('--background-color', '#121212');
-      root.style.setProperty('--background-color-reverse', '#f5f5f5');
-      root.style.setProperty('--text-color', '#ffffff');
-      root.style.setProperty('--text-color-reverse', '#000000');
-      root.style.setProperty('--dot-animation-rgba', 'rgba(18, 18, 18, 0.5)');
-    } else if (theme === 'darkest') {
-      root.style.setProperty('--background-color', '#000000');
-      root.style.setProperty('--background-color-reverse', '#f5f5f5');
-      root.style.setProperty('--text-color', '#ffffff');
-      root.style.setProperty('--text-color-reverse', '#000000');
-      root.style.setProperty('--dot-animation-rgba', 'rgba(18, 18, 18, 0.5)');
-    } else {
-      root.style.setProperty('--background-color', '#f5f5f5');  
-      root.style.setProperty('--background-color-reverse', '#121212');
-      root.style.setProperty('--text-color', '#000000');
-      root.style.setProperty('--text-color-reverse', '#ffffff');
-      root.style.setProperty('--dot-animation-rgba', 'rgba(245, 245, 245, 0.5)');
-    }
+  useEffect(() => {
+    const applyTheme = (theme: 'system' | 'dark' | 'light') => {
+      if (theme === 'system') {
+        localStorage.removeItem('theme');
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+      if (theme === 'dark') {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark');
+      }
+      if (theme === 'light') {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark');
+      }
+    };
+
+    applyTheme(theme);
+
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      if (theme === 'system') {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    };
+
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'theme') {
+        const newTheme = (e.newValue as 'dark' | 'light' | 'system') || 'system';
+        setTheme(newTheme);
+      }
+    };
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleSystemThemeChange);
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, [theme]);
 
   return (
     <InterfaceOptionContainer>
       {themeOptions.map((option) => (
-          <ThemeOption key={option} option={option} theme={theme} setTheme={setTheme} />
+        <ThemeOption key={option} option={option} theme={theme} setTheme={setTheme} />
       ))}
     </InterfaceOptionContainer>
   );

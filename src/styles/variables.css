@@ -6,20 +6,20 @@
   --dot-animation-rgba: rgba(18, 18, 18, 0.5);
   --background-color-dark: #121212;
   --text-color-dark: #ffffff;
-  --background-color-darkest: #000000;
-  --text-color-darkest: #ffffff;
+  --background-color-dark: #000000;
+  --text-color-dark: #ffffff;
   --text-color-light: #000000;
   --background-color-light: #f5f5f5;
 }
 
+/* [data-theme="dark"] {
+  background: var(--background-color-dark);
+  color: var(--text-color-dark);
+} */
+
 [data-theme="dark"] {
   background: var(--background-color-dark);
   color: var(--text-color-dark);
-}
-
-[data-theme="darkest"] {
-  background: var(--background-color-darkest);
-  color: var(--text-color-darkest);
 }
 
 [data-theme="light"] {
