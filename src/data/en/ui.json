@@ -2,7 +2,7 @@
     "theme": {
         "dark": "Dark",
         "light": "Light",
-        "darkest": "Darkest"
+        "system": "System"
     },
     "notFound": {
         "title": "404 - Page not found",

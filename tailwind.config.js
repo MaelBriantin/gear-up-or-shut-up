@@ -6,18 +6,13 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "selector",
   theme: {
     screens: {
       sm: '640px',
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-    },
-    colors: {
-      background: 'var(--background-color)',
-      backgroundReverse: 'var(--background-color-reverse)',
-      text: 'var(--text-color)',
-      textReverse: 'var(--text-color-reverse)',
     },
     fontFamily: {
       sans: ['Geist', 'sans-serif'],

@@ -1,21 +1,32 @@
+import { langOptions, LangType } from '@/types/LangType';
 import { create } from 'zustand';
 
-export type Language = 'en' | 'fr';
-
 interface LanguageState {
-    language: Language;
-    lng: Language;
-    languageOptions: Language[];
-    setLanguage: (language: Language) => void;
+    language: LangType;
+    lng: LangType;
+    languageOptions: LangType[];
+    setLanguage: (language: LangType) => void;
 }
 
-export const useLanguageStore = create<LanguageState>((set) => ({
-    language: localStorage.getItem('language') as Language || 'en',
-    lng: localStorage.getItem('language') as Language || 'en',
-    languageOptions: ['en', 'fr'],
-    setLanguage: (language) => {
-        localStorage.setItem('language', language);
-        set({ language });
-        set({ lng: language });
-    }
-}));
+export const useLanguageStore = create<LanguageState>((set) => {
+    const initialLanguage = localStorage.getItem('language') as LangType || langOptions[0];
+
+    const handleStorageChange = (e: StorageEvent) => {
+        if (e.key === 'language') {
+            const newLanguage = (e.newValue as LangType) || langOptions[0];
+            set({ language: newLanguage, lng: newLanguage });
+        }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return {
+        language: initialLanguage,
+        lng: initialLanguage,
+        languageOptions: langOptions,
+        setLanguage: (language) => {
+            localStorage.setItem('language', language);
+            set({ language, lng: language });
+        }
+    };
+});
