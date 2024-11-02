@@ -1,28 +1,4 @@
 @import url("./reset.css");
-@import url("./variables.css");
 @import url("./fonts.css");
 @import url("./tailwind.css");
 @import url("./animations/index.css");
-
-body {
-  color: var(--text-color);
-  background: var(--background-color);
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-.simple-button:hover {
-  opacity: 0.8;
-}
-
-.theme-toggle:hover {
-  opacity: 0.8;
-}
-
-.loading-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
