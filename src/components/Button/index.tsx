@@ -1,5 +1,3 @@
-import { LoadingDots } from "./LoadingDots";
-
 type ButtonPropsType = {
     children: string | React.ReactNode | undefined;
     onClick?: () => void;
@@ -18,7 +16,7 @@ export const Button = (props: ButtonPropsType) => {
             onClick={disabled || loading ? undefined : onClick}
             className={`
                 overflow-hidden whitespace-nowrap text-ellipsis max-w-40
-                ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
+                ${disabled || loading ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
                 ${loading ? 'cursor-wait min-w-20' : ''}
                 ${!loading && !disabled ? 'hover:opacity-75' : ''}
                 flex justify-center items-center
@@ -27,14 +25,9 @@ export const Button = (props: ButtonPropsType) => {
                 ${className}
             `}
             >
-            {loading ? (
-                <LoadingDots />
-            ) : (
-                <span
-                    className="truncate select-none"
-                >{children}
-                </span>
-            )}
+            <span className="truncate select-none">
+                {children}
+            </span>
         </button>
     );
 }
