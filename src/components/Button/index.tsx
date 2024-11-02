@@ -15,7 +15,7 @@ export const Button = (props: ButtonPropsType) => {
             type={type || 'button'}
             onClick={disabled || loading ? undefined : onClick}
             className={`
-                overflow-hidden whitespace-nowrap text-ellipsis max-w-40
+                overflow-hidden whitespace-nowrap text-ellipsis
                 ${disabled || loading ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
                 ${loading ? 'cursor-wait min-w-20' : ''}
                 ${!loading && !disabled ? 'hover:opacity-75' : ''}

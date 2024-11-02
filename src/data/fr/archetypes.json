@@ -1,0 +1,20 @@
+{
+    "barbarian": {
+        "name": "Barbare",
+        "description": "Un guerrier féroce d'origine primitive qui peut entrer dans une rage de combat",
+        "color": "red",
+        "cover": "/public/images/barbarian.png"
+    },
+    "wizard": {
+        "name": "Mage",
+        "description": "Un utilisateur de magie érudit capable de manipuler les structures de la réalité",
+        "color": "blue",
+        "cover": "/public/images/wizard.png"
+    },
+    "rogue": {
+        "name": "Voleur",
+        "description": "Un scélérat qui utilise la furtivité et la ruse pour surmonter les obstacles et les ennemis",
+        "color": "purple",
+        "cover": "/public/images/rogue.png"
+    }
+}
