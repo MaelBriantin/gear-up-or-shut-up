@@ -1,20 +1,20 @@
 {
-    "barbarian": {
-        "name": "Barbarian",
+    "_berzerker": {
+        "name": "The Berzerker",
         "description": "A fierce warrior of primitive background who can enter a battle rage",
         "color": "red",
-        "cover": "/public/images/barbarian.png"
+        "cover": "/images/barbarian.png"
     },
-    "wizard": {
-        "name": "Wizard",
+    "_wizard": {
+        "name": "The Wizard",
         "description": "A scholarly magic-user capable of manipulating the structures of reality",
         "color": "blue",
-        "cover": "/public/images/wizard.png"
+        "cover": "/images/wizard.png"
     },
-    "rogue": {
-        "name": "Rogue",
+    "_rogue": {
+        "name": "The Rogue",
         "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies",
         "color": "purple",
-        "cover": "/public/images/rogue.png"
+        "cover": "/images/rogue.png"
     }
 }

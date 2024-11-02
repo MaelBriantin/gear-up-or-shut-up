@@ -15,22 +15,6 @@ export const PlayPage = () => {
         (Object.keys(archetypes) as Array<keyof typeof archetypes>).map(key => ({ ...archetypes[key], key, flipped: false }))
     );
 
-    const gradientVariants = {
-        initial: {
-          background: "linear-gradient(270deg, #ff7e5f, #feb47b)",
-          backgroundSize: "400% 400%",
-          backgroundPosition: "0% 50%",
-        },
-        animate: {
-          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-          transition: {
-            duration: 15,
-            ease: "easeInOut",
-            repeat: Infinity,
-          },
-        },
-      };
-
     const handleCardClick = (index: number) => {
         setCards(prevState => {
             return prevState.map((card, i) => ({
@@ -42,19 +26,20 @@ export const PlayPage = () => {
 
     return (
         <div className='flex flex-col items-center justify-center gap-20'>
-            <motion.h1
-                className="text-2xl font-bold"
+            <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 2, delay: 1 }}
             >
-                Please, select your archetype
-            </motion.h1>
+                <h1 className="text-4xl">Select a hero <span className='font-bold text-transparent bg-gradient-to-tl from-cyan-900 via-indigo-800 to-violet-800 bg-clip-text'>archetype</span></h1>
+                <p className="text-xl">You can only choose one archetype to play with and start your journey.</p>
+                <p className="text-xl">So choose wisely!</p>
+            </motion.div>
             <div className="flex flex-row items-center justify-center gap-10 h-[500px]">
                 {cards.map((card, index) => (
                     <motion.div
                         key={index}
-                        className="relative flex items-center justify-center text-white rounded-lg w-[350px] h-[500px] hover:cursor-pointer select-none"
+                        className="relative flex items-center justify-center text-white rounded-lg w-[300px] h-[400px] hover:cursor-pointer select-none"
                         initial={{ y: "100vh" }}
                         animate={{ y: 0 }}
                         exit={{ y: "100vh" }}
@@ -64,28 +49,29 @@ export const PlayPage = () => {
                         style={{ perspective: 1000 }}
                     >
                         <motion.div
-                            className="absolute flex items-center justify-center w-full h-full text-3xl text-white rounded-lg bg-zinc-800 backface-hidden"
-                            style={{ backfaceVisibility: 'hidden', border: `10px solid #000`, borderRadius: '1rem' }}
+                            className="absolute flex items-center justify-center w-full h-full text-3xl text-white rounded-lg bg-gradient-to-tl from-cyan-900 via-indigo-800 to-violet-800 backface-hidden"
+                            style={{ backfaceVisibility: 'hidden', border: `5px solid #27272a`, borderRadius: '1rem', backgroundColor: '#27272a' }}
                             animate={{ rotateY: card.flipped ? -180 : 0 }}
                             transition={{ type: "spring", stiffness: 50 }}
                         />
                         <motion.div
-                            className="absolute flex items-end justify-center w-full h-full p-4 text-white rounded-lg bg-zinc-800 dark:bg-white dark:text-black backface-hidden"
+                            className="absolute flex items-end justify-center w-full h-full p-4 text-white rounded-lg backface-hidden"
                             style={{ 
                                 backfaceVisibility: 'hidden', 
                                 rotateY: 180, 
                                 backgroundImage: `url(${card.cover})`,
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
-                                border: '10px solid #000',
+                                backgroundColor: '#27272a',
+                                border: '5px solid #27272a',
                                 borderRadius: '1rem'
                             }}
                             animate={{ rotateY: card.flipped ? 0 : 180 }}
                             transition={{ type: "spring", stiffness: 50 }}
                         >
-                            <div className='flex flex-col items-center justify-center gap-4 p-4 bg-black rounded-lg bg-opacity-70 dark:text-white'>
+                            <div className='flex flex-col justify-center gap-4 p-4 text-white bg-black rounded-lg bg-opacity-70 items-between'>
                                 <div className='text-xl opacity-100'>{card.name}</div>
-                                <div>{card.description}</div>
+                                <div >{card.description}</div>
                             </div>
                         </motion.div>
                     </motion.div>
@@ -102,7 +88,7 @@ export const PlayPage = () => {
                                 }
                             }}
                         >
-                            confirm selection
+                            Confirm your choice
                         </Button>
                     )
                 }
