@@ -1,16 +1,16 @@
 import { Button } from "@/components/uiComponents";
+import { ArchetypeSelectionInterface } from "@/types";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 type SelectionConfirmationProps = {
-    cards: Array<{
-        key: string;
-        name: string;
-        selected: boolean;
-    }>
+    cards: Array<ArchetypeSelectionInterface>
 }
 
 export const SelectionConfirmation = (props: SelectionConfirmationProps) => {
     const { cards } = props;
+    const { t } = useTranslation('archetypes');
+    const selectedCard = cards.find(card => card.selected) || null;
     return (
         <motion.div
             key="all-flipped"
@@ -21,8 +21,8 @@ export const SelectionConfirmation = (props: SelectionConfirmationProps) => {
         >
             <div className="flex flex-col items-center justify-center gap-4">
                 <div>
-                    <p className="text-xl">You have selected:</p>
-                    <p className="text-2xl">{cards.find(card => card.selected)?.name}</p>
+                    <p className="text-xl">{t('selection.selected')}:</p>
+                    <p className="text-2xl">{t(`${selectedCard?.key}.name`)}</p>
                 </div>
                 <Button
                     onClick={() => {
@@ -32,7 +32,7 @@ export const SelectionConfirmation = (props: SelectionConfirmationProps) => {
                         }
                     }}
                 >
-                    Confirm your choice
+                    {t('selection.confirm_choice')}
                 </Button>
             </div>
         </motion.div>

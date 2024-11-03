@@ -2,12 +2,21 @@
     "theme": {
         "dark": "Dark",
         "light": "Light",
-        "darkest": "Darkest"
+        "system": "System"
     },
     "button": {
         "go_home": "Go Home",
         "loading": "Loading",
         "disabled": "Disabled",
         "play": "Play"
+    },
+    "not_found": {
+        "title": "404 - Page not found",
+        "text": {
+            "1": "These aren't the droids you're looking for.",
+            "2": "I find your lack of page disturbing.",
+            "3": "All the roads lead to Rome, but this one doesn't.",
+            "4": "You shall not pass! This page."
+        }
     }
 }

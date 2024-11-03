@@ -1,21 +1,22 @@
 import { capitalize } from "@/utils";
-import { useLanguageStore } from "@/stores/languageStore";
-import { LangType } from "@/types/LangType";
+import { LanguageType } from "@/types";
 
 type LanguageOptionProps = {
     option: string;
+    actualLanguage: string;
+    setLanguage: (language: string) => void;
 };
 
 export const LanguageOption = (props: LanguageOptionProps) => {
-    const { language, setLanguage } = useLanguageStore();
-    const { option } = props;
+    const { option, setLanguage, actualLanguage } = props;
+  
     return (
         <div 
-          onClick={() => setLanguage(option as LangType)} key={option} 
-          className={`user-select-none ${language !== option ? 'cursor-pointer hover:opacity-75' : 'pointer-events-none cursor-default'}`}
+          onClick={() => setLanguage(option as LanguageType)} key={option} 
+          className={`user-select-none ${actualLanguage !== option ? 'cursor-pointer hover:opacity-75' : 'pointer-events-none cursor-default'}`}
         >
           <span 
-            className={option === language ? 'opacity-1' : 'opacity-0'}>[</span>{capitalize(option)}<span className={option === language ? 'opacity-1' : 'opacity-0'}>]
+            className={option === actualLanguage ? 'opacity-1' : 'opacity-0'}>[</span>{capitalize(option)}<span className={option === actualLanguage ? 'opacity-1' : 'opacity-0'}>]
           </span>
         </div>
     )

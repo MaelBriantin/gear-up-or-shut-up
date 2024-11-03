@@ -1,0 +1,24 @@
+{
+    "archetype_one": "archétype",
+    "archetype_other": "archétypes",
+    "selection": {
+        "title_1": "Révélez les ",
+        "description_1": "Cliquez sur les cartes pour révéler les archétypes et en sélectionner un.",
+        "title_2": "Sélectionnez un ",
+        "description_2": "Vous ne pouvez choisir qu'un seul archétype pour jouer et commencer votre voyage.",
+        "selected": "Vous avez sélectionné ",
+        "confirm_choice": "Confirmez votre choix"
+    },
+    "_berzerker": {
+        "name": "Le Berzerker",
+        "description": "Un guerrier féroce d'origine primitive qui peut entrer dans une rage de combat"
+    },
+    "_wizard": {
+        "name": "Le Mage",
+        "description": "Un utilisateur de magie érudit capable de manipuler les structures de la réalité"
+    },
+    "_rogue": {
+        "name": "Le Voleur",
+        "description": "Un scélérat qui utilise la furtivité et la ruse pour surmonter les obstacles et les ennemis"
+    }
+}

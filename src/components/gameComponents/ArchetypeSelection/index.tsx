@@ -1,16 +1,18 @@
-import { useState } from 'react';
-import archetypes from '@/data/en/archetypes.json';
-import { SelectionTitle } from './SelectionTitle';
 import { ArchetypeSelectionCard } from './ArchetypeSelectionCard';
 import { SelectionConfirmation } from './SelectionConfirmation';
+import { SelectionTitle } from './SelectionTitle';
+import { useTranslation } from 'react-i18next';
+import { archetypes } from '@/data';
+import { useState } from 'react';
 
 export const ArchetypeSelection = () => {
+    const { t } = useTranslation('archetypes');
     
     const [cards, setCards] = useState(
         (Object.keys(archetypes) as Array<keyof typeof archetypes>).map(key => (
             { 
                 ...archetypes[key], 
-                key, 
+                key,
                 flipped: false, 
                 selected: false 
             })
@@ -34,16 +36,15 @@ export const ArchetypeSelection = () => {
             { 
                 cards.some(card => !card.flipped) &&
                     <SelectionTitle key='not-all-flipped'>
-                        <h1 className="text-4xl">Reveal the <span className='font-bold text-transparent bg-purple-gradient bg-clip-text'>archetypes</span></h1>
-                        <p className="text-xl">Click on the cards to reveal the archetypes and select one.</p>
+                        <h1 className="text-4xl">{t('selection.title_1')}<span className='font-bold text-transparent bg-purple-gradient bg-clip-text'>{t('archetype', { count: 2 })}</span></h1>
+                        <p className="text-xl">{t('selection.description_1')}</p>
                     </SelectionTitle>
             }
             {
                 cards.every(card => card.flipped) &&
                     <SelectionTitle key='all-flipped'>
-                        <h1 className="text-4xl">Select a hero <span className='font-bold text-transparent bg-purple-gradient bg-clip-text'>archetype</span></h1>
-                        <p className="text-xl">You can only choose one archetype to play with and start your journey.</p>
-                        <p className="text-xl">So choose wisely!</p>
+                        <h1 className="text-4xl">{t('selection.title_2')}<span className='font-bold text-transparent bg-purple-gradient bg-clip-text'>{t('archetype', {count: 1})}</span></h1>
+                        <p className="text-xl">{t('selection.description_2')}</p>
                     </SelectionTitle>
             }
 
