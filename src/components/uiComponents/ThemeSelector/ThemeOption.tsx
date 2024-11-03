@@ -1,4 +1,4 @@
-import { useData } from "@/hooks";
+import { useTranslation } from 'react-i18next';
 
 type ThemeOptionProps = {
     option: 'dark' | 'light' | 'system';
@@ -7,6 +7,7 @@ type ThemeOptionProps = {
   }
 
 export const ThemeOption = (props: ThemeOptionProps) => {
+    const { t } = useTranslation('ui');
     const { option, theme, setTheme } = props;
     return (
         <div
@@ -15,7 +16,7 @@ export const ThemeOption = (props: ThemeOptionProps) => {
             className={`${theme !== option ? 'cursor-pointer hover:opacity-75' : 'cursor-default'}`}
         >
             <span className={option === theme ? 'opacity-1' : 'opacity-0'}>[</span>
-            {useData(`ui.theme.${option}`)}
+            {t(`theme.${option}`)}
             <span className={option === theme ? 'opacity-1' : 'opacity-0'}>]</span>
         </div>
     );

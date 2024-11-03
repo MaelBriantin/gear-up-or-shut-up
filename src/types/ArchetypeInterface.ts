@@ -1,6 +1,6 @@
 export interface ArchetypeSelectionInterface {
-    name: string;
-    description: string;
+    key: string;
+    translations: Array<string>;
     cover: string;
     flipped: boolean;
     selected: boolean;

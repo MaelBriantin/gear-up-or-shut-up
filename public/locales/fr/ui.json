@@ -2,12 +2,21 @@
     "theme": {
         "dark": "Sombre",
         "light": "Clair",
-        "darkest": "Très sombre"
+        "system": "Système"
     },
     "button": {
         "go_home": "Rentre chez toi",
         "loading": "Chargement",
         "disabled": "Désactivé",
         "play": "Jouer" 
+    },
+    "not_found": {
+        "title": "404 - Page non trouvée",
+        "text": {
+            "1": "Ce ne sont pas les droïdes que vous recherchez.",
+            "2": "Je trouve votre manque de page dérangeant.",
+            "3": "Toutes les routes mènent à Rome, mais pas celle-ci.",
+            "4": "Vous ne passerez pas! Cette page."
+        }
     }
 }

@@ -1,0 +1,17 @@
+{
+    "_berzerker": {
+        "translations": ["name", "description"],
+        "color": "red",
+        "cover": "/images/barbarian.png"
+    },
+    "_wizard": {
+        "translations": ["name", "description"],
+        "color": "blue",
+        "cover": "/images/wizard.png"
+    },
+    "_rogue": {
+        "translations": ["name", "description"],
+        "color": "purple",
+        "cover": "/images/rogue.png"
+    }
+}
