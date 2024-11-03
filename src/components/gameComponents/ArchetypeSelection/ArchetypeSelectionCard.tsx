@@ -10,7 +10,6 @@ type ArchetypeSelectionCardProps = {
 export const ArchetypeSelectionCard = (props: ArchetypeSelectionCardProps) => {
 
     const { card, index, handleCardClick } = props;
-    
     const cardDimensions = {
         width: '300px',
         height: '400px',
@@ -22,14 +21,14 @@ export const ArchetypeSelectionCard = (props: ArchetypeSelectionCardProps) => {
     
     return (
         <motion.div
-            className={`relative flex items-center justify-center text-white rounded-lg w-[${cardDimensions.width}] h-[${cardDimensions.height}] hover:cursor-pointer select-none`}
+            className={`relative flex items-center justify-center text-white rounded-lg hover:cursor-pointer select-none`}
             initial={{ y: "100vh" }}
             animate={{ y: 0 }}
             exit={{ y: "100vh" }}
             transition={{ type: "spring", stiffness: 100, delay: index * 0.1 }}
             whileHover={{ scale: 1.05 }}
             onClick={() => handleCardClick(index)}
-            style={{ perspective: 1000 }}
+            style={{ perspective: 1000, width: cardDimensions.width, height: cardDimensions.height }}
         >
             <motion.div
                 className="absolute flex items-center justify-center w-full h-full text-3xl text-white rounded-lg bg-purple-gradient backface-hidden"
