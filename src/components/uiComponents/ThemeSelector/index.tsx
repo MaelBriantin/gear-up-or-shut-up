@@ -1,5 +1,5 @@
 import { ThemeOption } from './ThemeOption';
-import { InterfaceOptionContainer } from '@components';
+import { InterfaceOptionContainer } from '@/components/uiComponents';
 import React, { useEffect } from 'react';
 
 export const ThemeSelector = () => {

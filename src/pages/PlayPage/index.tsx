@@ -1,3 +1,7 @@
+import { GameEngine } from "@/components/gameComponents"
+
 export const PlayPage = () => {
-    return <div>ready?</div>;
-};
+    return  (
+        <GameEngine />
+    )
+}

@@ -15,12 +15,12 @@ export const Button = (props: ButtonPropsType) => {
             type={type || 'button'}
             onClick={disabled || loading ? undefined : onClick}
             className={`
-                overflow-hidden whitespace-nowrap text-ellipsis max-w-40
+                overflow-hidden whitespace-nowrap text-ellipsis
                 ${disabled || loading ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
                 ${loading ? 'cursor-wait min-w-20' : ''}
                 ${!loading && !disabled ? 'hover:opacity-75' : ''}
                 flex justify-center items-center
-                text-sm px-4 rounded-[4px] h-8
+                text-md px-4 rounded-[4px] h-10
                 bg-zinc-800 text-white dark:bg-white dark:text-black
                 ${className}
             `}

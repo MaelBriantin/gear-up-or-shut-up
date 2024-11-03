@@ -1,0 +1,20 @@
+{
+    "_berzerker": {
+        "name": "The Berzerker",
+        "description": "A fierce warrior of primitive background who can enter a battle rage",
+        "color": "red",
+        "cover": "/images/barbarian.png"
+    },
+    "_wizard": {
+        "name": "The Wizard",
+        "description": "A scholarly magic-user capable of manipulating the structures of reality",
+        "color": "blue",
+        "cover": "/images/wizard.png"
+    },
+    "_rogue": {
+        "name": "The Rogue",
+        "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies",
+        "color": "purple",
+        "cover": "/images/rogue.png"
+    }
+}
