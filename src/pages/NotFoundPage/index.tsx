@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@components";
+import { Button } from "@/components/uiComponents";
 import { useData } from "@hooks";
 import { randomNumber } from "@utils";
 

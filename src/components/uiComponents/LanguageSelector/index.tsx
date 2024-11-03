@@ -1,4 +1,4 @@
-import { InterfaceOptionContainer } from '@components';
+import { InterfaceOptionContainer } from '@/components/uiComponents';
 import { useLanguageStore } from '@/stores';
 import { LanguageOption } from './LanguageOption';
 

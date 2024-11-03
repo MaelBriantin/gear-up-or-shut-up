@@ -18,7 +18,11 @@ export default {
       sans: ['Geist', 'sans-serif'],
       mono: ['Geist Mono', 'monospace'],
     },
-    extend: {}
+    extend: {
+      backgroundImage: {
+        'purple-gradient': 'linear-gradient(to top left, #0f172a, #3730a3, #7c3aed)',
+      },
+    }
   },
   plugins: [],
 }

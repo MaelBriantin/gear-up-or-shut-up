@@ -1,4 +1,4 @@
-import { OptionsInterface } from "@/components/OptionsInterface";
+import { OptionsInterface } from "@/components/uiComponents/OptionsInterface";
 import { Outlet } from "react-router-dom";
 
 export const MainLayout = () => {
