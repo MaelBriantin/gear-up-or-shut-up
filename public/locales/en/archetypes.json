@@ -4,21 +4,56 @@
     "selection": {
         "title_1": "Reaveal the ",
         "description_1": "Click on the cards to reveal the archetypes and select one.",
-        "title_2": "Select a ",
+        "title_2": "Select an ",
         "description_2": "You can only choose one archetype to play and start your journey.",
-        "selected": "You have selected",
         "confirm_choice": "Confirm your choice"
     },
     "_berzerker": {
         "name": "The Berzerker",
-        "description": "A fierce warrior of primitive background who can enter a battle rage"
+        "description": "A fierce warrior of primitive background who can enter a battle rage",
+        "title_list": {
+            "1": "The Fierce",
+            "2": "The Unchained",
+            "3": "The Breaker",
+            "4": "The Roaring",
+            "5": "The Wild",
+            "6": "The Impetuous",
+            "7": "The Warrior",
+            "8": "The Frenzied",
+            "9": "The Unyielding",
+            "10": "The Destroyer"
+        }
     },
     "_wizard": {
         "name": "The Wizard",
-        "description": "A scholarly magic-user capable of manipulating the structures of reality"
+        "description": "A scholarly magic-user capable of manipulating the structures of reality",
+        "title_list": {
+            "1": "The Wise",
+            "2": "The Mystic",
+            "3": "The Enchanter",
+            "4": "The Seer",
+            "5": "The Astrologer",
+            "6": "The Alchemist",
+            "7": "The Occultist",
+            "8": "The Thaumaturge",
+            "9": "The Conjurer",
+            "10": "The Archmage"
+        }
     },
     "_rogue": {
         "name": "The Rogue",
-        "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies"
+        "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies",
+        "title_list": {
+            "1": "The Shadow",
+            "2": "The Stealthy",
+            "3": "The Silent",
+            "4": "The Masked",
+            "5": "The Specter",
+            "6": "The Elusive",
+            "7": "The Raven",
+            "8": "The Invisible",
+            "9": "The Chameleon",
+            "10": "The Sneak-Blade"
+        }
     }
 }

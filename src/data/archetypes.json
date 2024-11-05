@@ -1,17 +1,65 @@
 {
     "_berzerker": {
-        "translations": ["name", "description"],
+        "translations": [
+            "name",
+            "description",
+            "title_list"
+        ],
         "color": "red",
-        "cover": "/images/barbarian.png"
+        "cover": "/images/barbarian.png",
+        "name_list": [
+            "Thorg",
+            "Ragnar",
+            "Baldar",
+            "Hakon",
+            "Skarn",
+            "Ulfgar",
+            "Dragnar",
+            "Grom",
+            "Korgar",
+            "Brog"
+        ]
     },
     "_wizard": {
-        "translations": ["name", "description"],
+        "translations": [
+            "name",
+            "description",
+            "title_list"
+        ],
         "color": "blue",
-        "cover": "/images/wizard.png"
+        "cover": "/images/wizard.png",
+        "name_list": [
+            "Aldor",
+            "Zyphor",
+            "Merrik",
+            "Elowyn",
+            "Nymir",
+            "Varlun",
+            "Edris",
+            "Mïrn",
+            "Thalwyn",
+            "Seraphor"
+        ]
     },
     "_rogue": {
-        "translations": ["name", "description"],
+        "translations": [
+            "name",
+            "description",
+            "title_list"
+        ],
         "color": "purple",
-        "cover": "/images/rogue.png"
+        "cover": "/images/rogue.png",
+        "name_list": [
+            "Kael",
+            "Jax",
+            "Vex",
+            "Raven",
+            "Sly",
+            "Nyx",
+            "Kalen",
+            "Rook",
+            "Talon",
+            "Nox"
+        ]
     }
 }

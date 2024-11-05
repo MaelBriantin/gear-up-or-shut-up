@@ -1,7 +1,10 @@
-import { Button } from "@/components/uiComponents";
+import { useCompleteName } from "@/hooks/useCompleteName";
 import { ArchetypeSelectionInterface } from "@/types";
-import { motion } from "framer-motion";
+import { Button } from "@/components/uiComponents";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { randomNumber } from "@/utils";
 
 type SelectionConfirmationProps = {
     cards: Array<ArchetypeSelectionInterface>
@@ -11,6 +14,16 @@ export const SelectionConfirmation = (props: SelectionConfirmationProps) => {
     const { cards } = props;
     const { t } = useTranslation('archetypes');
     const selectedCard = cards.find(card => card.selected) || null;
+
+    const [randomized, setRandomized] = useState({ nameIndex: 0, titleIndex: 0 });
+
+    useEffect(() => {
+        setRandomized({
+            nameIndex: randomNumber(0, 9),
+            titleIndex: randomNumber(1, 10)
+        });
+    }, []);
+
     return (
         <motion.div
             key="all-flipped"
@@ -19,17 +32,13 @@ export const SelectionConfirmation = (props: SelectionConfirmationProps) => {
             transition={{ duration: 0.5 }}
             style={{ height: '100px', width: '100%', textAlign: 'start' }}
         >
-            <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-8">
                 <div>
-                    <p className="text-xl">{t('selection.selected')}:</p>
-                    <p className="text-2xl">{t(`${selectedCard?.key}.name`)}</p>
+                    <p className="text-2xl">{useCompleteName(selectedCard?.key || '', randomized.nameIndex, randomized.titleIndex)}</p>
                 </div>
                 <Button
                     onClick={() => {
-                        const selectedCard = cards.find(card => card.selected);
-                        if (selectedCard) {
-                            console.log(selectedCard.key);
-                        }
+                        console.log('clicked');
                     }}
                 >
                     {t('selection.confirm_choice')}

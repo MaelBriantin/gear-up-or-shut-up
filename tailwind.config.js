@@ -20,7 +20,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        'purple-gradient': 'linear-gradient(to top left, #0f172a, #3730a3, #7c3aed)',
+        'purple-gradient': 'linear-gradient(to bottom right, #3b82f6, #6366f1, #8b5cf6)',
       },
     }
   },

@@ -6,19 +6,54 @@
         "description_1": "Cliquez sur les cartes pour révéler les archétypes et en sélectionner un.",
         "title_2": "Sélectionnez un ",
         "description_2": "Vous ne pouvez choisir qu'un seul archétype pour jouer et commencer votre voyage.",
-        "selected": "Vous avez sélectionné ",
         "confirm_choice": "Confirmez votre choix"
     },
     "_berzerker": {
         "name": "Le Berzerker",
-        "description": "Un guerrier féroce d'origine primitive qui peut entrer dans une rage de combat"
+        "description": "Un guerrier féroce d'origine primitive qui peut entrer dans une rage de combat",
+        "title_list": {
+            "1": "Le Féroce",
+            "2": "Le Déchaîné",
+            "3": "Le Briseur",
+            "4": "Le Rugissant",
+            "5": "Le Sauvage",
+            "6": "L'Impétueux",
+            "7": "Le Guerrier",
+            "8": "Le Forcené",
+            "9": "L'Inflexible",
+            "10": "Le Destructeur"
+        }
     },
     "_wizard": {
         "name": "Le Mage",
-        "description": "Un utilisateur de magie érudit capable de manipuler les structures de la réalité"
+        "description": "Un utilisateur de magie érudit capable de manipuler les structures de la réalité",
+        "title_list": {
+            "1": "Le Sage",
+            "2": "Le Mystique",
+            "3": "L'Enchanteur",
+            "4": "Le Clairvoyant",
+            "5": "L'Astrologue",
+            "6": "L'Alchimiste",
+            "7": "L'Occultiste",
+            "8": "Le Thaumaturge",
+            "9": "Le Conjurateur",
+            "10": "L'Archimage"
+        }
     },
     "_rogue": {
         "name": "Le Voleur",
-        "description": "Un scélérat qui utilise la furtivité et la ruse pour surmonter les obstacles et les ennemis"
+        "description": "Un scélérat qui utilise la furtivité et la ruse pour surmonter les obstacles et les ennemis",
+        "title_list": {
+            "1": "L'Ombre",
+            "2": "Le Furtif",
+            "3": "Le Silencieux",
+            "4": "Le Masqué",
+            "5": "Le Spectre",
+            "6": "L'Insaisissable",
+            "7": "Le Corbeau",
+            "8": "L'Invisible",
+            "9": "Le Caméléon",
+            "10": "Le Lame-Sournoise"
+        }
     }
 }
