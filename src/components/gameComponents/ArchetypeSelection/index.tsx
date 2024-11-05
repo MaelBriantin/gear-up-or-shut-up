@@ -4,18 +4,22 @@ import { SelectionTitle } from './SelectionTitle';
 import { useTranslation } from 'react-i18next';
 import { archetypes } from '@/data';
 import { useState } from 'react';
+import { shuffleArrayAndPick } from '@/utils';
 
 export const ArchetypeSelection = () => {
     const { t } = useTranslation('archetypes');
-    
+
     const [cards, setCards] = useState(
-        (Object.keys(archetypes) as Array<keyof typeof archetypes>).map(key => (
-            { 
-                ...archetypes[key], 
-                key,
-                flipped: false, 
-                selected: false 
-            })
+        shuffleArrayAndPick(
+            (Object.keys(archetypes) as Array<keyof typeof archetypes>).map(key => (
+                {
+                    ...archetypes[key],
+                    key: key.toString(),
+                    flipped: false,
+                    selected: false
+                })
+            )
+            , 2
         )
     );
 
@@ -23,32 +27,26 @@ export const ArchetypeSelection = () => {
         setCards(prevState => {
             const allFlipped = prevState.every(card => card.flipped);
             return prevState.map((card, i) => ({
-            ...card,
-            flipped: i === index ? true : card.flipped,
-            selected: allFlipped && i === index
+                ...card,
+                flipped: i === index ? true : card.flipped,
+                selected: allFlipped && i === index
             }));
         });
     };
 
     return (
-        <div className='flex flex-col items-center justify-center gap-10'>
-            
-            { 
+        <div className='flex flex-col items-center justify-center gap-20'>
+
+            {
                 cards.some(card => !card.flipped) &&
-                    <SelectionTitle key='not-all-flipped'>
-                        <h1 className="text-4xl">{t('selection.title_1')}<span className='font-bold text-transparent bg-purple-gradient bg-clip-text'>{t('archetype', { count: 2 })}</span></h1>
-                        <p className="text-xl">{t('selection.description_1')}</p>
-                    </SelectionTitle>
+                <SelectionTitle key='not-all-flipped' title={t('selection.title_1')} specialWord={t('archetype', { count: 3 })} subtitle={t('selection.description_1')} />
             }
             {
                 cards.every(card => card.flipped) &&
-                    <SelectionTitle key='all-flipped'>
-                        <h1 className="text-4xl">{t('selection.title_2')}<span className='font-bold text-transparent bg-purple-gradient bg-clip-text'>{t('archetype', {count: 1})}</span></h1>
-                        <p className="text-xl">{t('selection.description_2')}</p>
-                    </SelectionTitle>
+                <SelectionTitle key='all-flipped' title={t('selection.title_2')} specialWord={t('archetype', { count: 1 })} subtitle={t('selection.description_2')} />
             }
 
-            <div className="flex flex-row items-center justify-center gap-5 h-[500px]">
+            <div className="flex flex-row items-center justify-center gap-5">
                 {
                     cards.map((card, index) => (
                         <ArchetypeSelectionCard

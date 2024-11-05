@@ -32,7 +32,7 @@ export const SelectionConfirmation = (props: SelectionConfirmationProps) => {
             transition={{ duration: 0.5 }}
             style={{ height: '100px', width: '100%', textAlign: 'start' }}
         >
-            <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-8">
                 <div>
                     <p className="text-2xl">{useCompleteName(selectedCard?.key || '', randomized.nameIndex, randomized.titleIndex)}</p>
                 </div>
