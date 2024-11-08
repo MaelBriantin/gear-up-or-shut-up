@@ -2,7 +2,7 @@ import { InterfaceOptionContainer } from '@/components/uiComponents';
 import { LanguageOption } from './LanguageOption';
 import { languageOptions } from '@/types/LanguageType';
 import i18n from '@/lib/i18n';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const LanguageSelector = () => {
 
@@ -14,6 +14,22 @@ export const LanguageSelector = () => {
     localStorage.language = language;
     setActualLanguage(language);
   }
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const newLanguage = localStorage.language || 'en';
+      if (newLanguage !== actualLanguage) {
+        setActualLanguage(newLanguage);
+        i18n.changeLanguage(newLanguage);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [actualLanguage]);
 
   return (
       <InterfaceOptionContainer>
