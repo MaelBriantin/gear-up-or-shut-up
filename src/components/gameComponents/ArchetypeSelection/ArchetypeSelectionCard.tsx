@@ -1,6 +1,6 @@
 import { ArchetypeSelectionInterface } from "@/types";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 type ArchetypeSelectionCardProps = {
     card: ArchetypeSelectionInterface;

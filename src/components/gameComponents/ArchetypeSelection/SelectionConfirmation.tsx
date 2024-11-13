@@ -3,7 +3,7 @@ import { ArchetypeSelectionInterface } from "@/types";
 import { Button } from "@/components/uiComponents";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { randomNumber } from "@/utils";
 
 type SelectionConfirmationProps = {
