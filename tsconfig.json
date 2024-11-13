@@ -1,5 +1,4 @@
 {
-  "files": [],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -13,11 +12,36 @@
       "@utils": ["src/utils"],
       "@hooks*": ["src/hooks"],
       "@data": ["src/data"],
-      "@stores": ["src/stores"],
-    }
+      "@stores": ["src/stores"]
+    },
+    "outDir": "build/dist",
+    "module": "ESNext",
+    "target": "ES6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ],
+  "types": [
+    "typePatches"
+  ],
+  "references": []
 }
