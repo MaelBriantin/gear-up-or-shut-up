@@ -5,7 +5,6 @@
             "description",
             "title_list"
         ],
-        "color": "red",
         "cover": "/images/barbarian.png",
         "name_list": [
             "Thorg",
@@ -18,7 +17,15 @@
             "Grom",
             "Korgar",
             "Brog"
-        ]
+        ],
+        "stats_ranges": {
+            "CON": [10, 12],
+            "ATT": [10, 12],
+            "DEF": [0],
+            "ARC": [0],
+            "INI": [2],
+            "LUCK": [0]
+        }
     },
     "_wizard": {
         "translations": [
@@ -26,7 +33,6 @@
             "description",
             "title_list"
         ],
-        "color": "blue",
         "cover": "/images/wizard.png",
         "name_list": [
             "Aldor",
@@ -39,7 +45,15 @@
             "Mïrn",
             "Thalwyn",
             "Seraphor"
-        ]
+        ],
+        "stats_ranges": {
+            "CON": [5, 8],
+            "ATT": [5, 8],
+            "DEF": [0],
+            "ARC": [5, 8],
+            "INI": [2],
+            "LUCK": [0]
+        }
     },
     "_rogue": {
         "translations": [
@@ -47,7 +61,6 @@
             "description",
             "title_list"
         ],
-        "color": "purple",
         "cover": "/images/rogue.png",
         "name_list": [
             "Kael",
@@ -60,6 +73,14 @@
             "Rook",
             "Talon",
             "Nox"
-        ]
+        ],
+        "stats_ranges": {
+            "CON": [5, 8],
+            "ATT": [8, 10],
+            "DEF": [0],
+            "ARC": [2, 5],
+            "INI": [3],
+            "LUCK": [1, 2]
+        }
     }
 }

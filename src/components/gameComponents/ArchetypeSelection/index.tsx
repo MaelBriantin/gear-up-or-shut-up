@@ -14,7 +14,7 @@ export const ArchetypeSelection = () => {
             (Object.keys(archetypes) as Array<keyof typeof archetypes>).map(key => (
                 {
                     ...archetypes[key],
-                    key: key.toString(),
+                    key: key as keyof typeof archetypes,
                     flipped: false,
                     selected: false
                 })

@@ -1,5 +1,7 @@
-import { useCompleteName } from "@/hooks/useCompleteName";
-import { ArchetypeSelectionInterface } from "@/types";
+import { generateCharacter } from "@/utils/characters/generateCharacter";
+import { ArchetypeKeys, ArchetypeSelectionInterface } from "@/types";
+import { useCompleteName } from "@/hooks/characters/useCompleteName";
+import { CharacterData } from "@/types/CharacterType";
 import { Button } from "@/components/uiComponents";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -13,16 +15,33 @@ type SelectionConfirmationProps = {
 export const SelectionConfirmation = (props: SelectionConfirmationProps) => {
     const { cards } = props;
     const { t } = useTranslation('archetypes');
+
     const selectedCard = cards.find(card => card.selected) || null;
 
     const [randomized, setRandomized] = useState({ nameIndex: 0, titleIndex: 0 });
+    const [generatedCharacters, setGeneratedCharacters] = useState<Array<CharacterData>>([]);
+    const [selectedCharacter, setSelectedCharacter] = useState<CharacterData | null>(null);
 
     useEffect(() => {
+        const nameIndex = randomNumber(0, 9);
+        const titleIndex = randomNumber(0, 9);
         setRandomized({
-            nameIndex: randomNumber(0, 9),
-            titleIndex: randomNumber(1, 10)
+            nameIndex,
+            titleIndex
+        });
+        cards.forEach(card => {
+            setGeneratedCharacters(
+                prevState => 
+                    [...prevState, 
+                        generateCharacter(card.key, nameIndex, titleIndex)
+                    ]
+            );
         });
     }, []);
+
+    useEffect(() => {
+        setSelectedCharacter(generatedCharacters.find(character => character.archetypeKey === selectedCard?.key as ArchetypeKeys) || null);
+    }, [selectedCard]);
 
     return (
         <motion.div
@@ -34,11 +53,19 @@ export const SelectionConfirmation = (props: SelectionConfirmationProps) => {
         >
             <div className="flex flex-col items-center justify-center gap-8">
                 <div>
-                    <p className="text-2xl">{useCompleteName(selectedCard?.key || '', randomized.nameIndex, randomized.titleIndex)}</p>
+                    <p className="text-2xl">
+                        {
+                            useCompleteName(
+                                selectedCard?.key as ArchetypeKeys, 
+                                randomized.nameIndex, 
+                                randomized.titleIndex
+                            )
+                        }
+                    </p>
                 </div>
                 <Button
                     onClick={() => {
-                        console.log('clicked');
+                        console.log(selectedCharacter);
                     }}
                 >
                     {t('selection.confirm_choice')}
