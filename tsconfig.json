@@ -31,6 +31,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
+  "include": ["src"],
   "exclude": [
     "node_modules",
     "build",
@@ -38,10 +39,10 @@
     "acceptance-tests",
     "webpack",
     "jest",
-    "src/setupTests.ts"
-  ],
-  "types": [
-    "typePatches"
-  ],
-  "references": []
+    "src/setupTests.ts",
+    "eslint.config.js",
+    "postcss.config.js",
+    "tailwind.config.js",
+    "vite.config.ts"
+  ]
 }
