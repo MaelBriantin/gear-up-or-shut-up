@@ -1,10 +1,10 @@
-import { ArchetypeSelection } from "@/components/gameComponents";
+import { CharacterSelection } from "@/components/gameComponents";
 
 export const GameEngine = () => {
 
     return (
         <div>
-            <ArchetypeSelection />
+            <CharacterSelection />
         </div>
     )
 }

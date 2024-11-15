@@ -1,3 +1,3 @@
 export { GameEngine } from './gameEngine';
 
-export { ArchetypeSelection } from './ArchetypeSelection';
+export { CharacterSelection } from './CharacterSelection';

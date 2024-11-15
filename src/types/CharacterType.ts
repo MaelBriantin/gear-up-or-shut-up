@@ -1,24 +1,24 @@
 import { ArchetypeKeys } from "./ArchetypeInterface";
+import { Character } from "@/classes/Character";
 
-export interface CharacterData {
+export type CompleteNameType = {
     archetypeKey: ArchetypeKeys;
     nameKey: number;
     titleKey: number;
-    stats: CharacterStats;
 };
 
-export interface TranslatedCharacter {
-    archetypeKey: ArchetypeKeys;
+export type CharacterStatsKeys = "CON" | "ATT" | "DEF" | "ARC" | "INI" | "LCK";
+
+export type CharacterStats = {
+    [key in CharacterStatsKeys]: number;
+};
+
+export type GeneratedCharacterCardType = {
+    _key: ArchetypeKeys;
+    character: Character;
     name: string;
-    title: string;
-    stats: CharacterStats;
-};
-
-export interface CharacterStats {
-    CON: number;
-    ATT: number;
-    DEF: number;
-    ARC: number;
-    INI: number;
-    LUCK: number;
-};
+    cover: string;
+    description: string;
+    flipped: boolean;
+    selected: boolean;
+  };

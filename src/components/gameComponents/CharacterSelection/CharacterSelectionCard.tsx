@@ -1,14 +1,14 @@
-import { ArchetypeSelectionInterface } from "@/types";
+import { GeneratedCharacterCardType } from "@/types/CharacterType";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-type ArchetypeSelectionCardProps = {
-    card: ArchetypeSelectionInterface;
+type CharacterSelectionCardProps = {
+    card: GeneratedCharacterCardType;
     index: number;
     handleCardClick: (index: number) => void;
 }
 
-export const ArchetypeSelectionCard = (props: ArchetypeSelectionCardProps) => {
+export const CharacterSelectionCard = (props: CharacterSelectionCardProps) => {
     const { card, index, handleCardClick } = props;
     const { t } = useTranslation('archetypes');
 
@@ -59,8 +59,8 @@ export const ArchetypeSelectionCard = (props: ArchetypeSelectionCardProps) => {
                 transition={{ type: "spring", stiffness: 50 }}
             >
                 <div className='flex flex-col justify-center gap-4 p-4 text-white bg-black rounded-lg bg-opacity-70 items-between'>
-                    <div className='text-lg opacity-100'>{t(`${card.key}.name`)}</div>
-                    <div className='text-sm'>{t(`${card.key}.description`)}</div>
+                    <div className='text-lg opacity-100'>{t(`${card._key}.name`)}</div>
+                    <div className='text-sm'>{t(`${card._key}.description`)}</div>
                 </div>
             </motion.div>
         </motion.div>
