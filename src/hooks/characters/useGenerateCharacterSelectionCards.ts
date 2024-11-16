@@ -1,6 +1,6 @@
 import { GeneratedCharacterCardType } from "@/types/CharacterType";
 import { ArchetypeKeys } from "@/types/ArchetypeInterface";
-import { randomNumber, shuffleAndPick } from "@/utils";
+import { shuffleAndPick } from "@/utils";
 import allArchetypes from "@/data/archetypes.json";
 import { Character } from "@/classes/Character";
 import { useTranslation } from "react-i18next";
@@ -25,11 +25,9 @@ export const useGenerateCharacterSelectionCards = (props: GenerateCharacterSelec
   const shuffledAndPickedArchetypes = shuffleAndPick(archetypesArray, numberOfCharacters);
   const characterCards = shuffledAndPickedArchetypes.map((archetype) => {
     const _key = archetype.key as ArchetypeKeys;
-    const nameKey = randomNumber(0, archetype.name_list.length - 1);
-    const titleKey = randomNumber(0, 9);
     return {
       _key, 
-      character: new Character(_key, nameKey, titleKey),
+      character: new Character(_key),
       name: t(`archetypes:${_key}.name`),
       description: t(`archetypes:${_key}.description`),
       cover: archetype.cover,

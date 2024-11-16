@@ -3,7 +3,7 @@ import { ArchetypeKeys } from "@/types/ArchetypeInterface";
 import archetypeData from "@/data/archetypes.json";
 import { randomNumber } from "@/utils";
 
-type StatMultiplierType = {
+type LinkedStatsType = {
     key: 'HP' | 'AP' | 'MP';
     stat: CharacterStatsKeys;
     multiplier: number;
@@ -11,13 +11,15 @@ type StatMultiplierType = {
 
 export class Character {
 
+    public nameKey: number;
+    public titleKey: number;
     public level: number = 1;
     public HP: number;
     public AP: number;
     public MP: number;
     public stats: CharacterStats;
 
-    private statMultipliers: StatMultiplierType[] = [
+    private linkedStats: LinkedStatsType[] = [
         { key: 'HP', stat: 'CON', multiplier: 10 },
         { key: 'AP', stat: 'INI', multiplier: 1 },
         { key: 'MP', stat: 'ARC', multiplier: 2 },
@@ -25,9 +27,9 @@ export class Character {
     
     constructor(
         public archetypeKey: ArchetypeKeys,
-        public nameKey: number,
-        public titleKey: number,
     ) {
+        this.nameKey = this.randomizeNameAndTitle().nameKey;
+        this.titleKey = this.randomizeNameAndTitle().titleKey;
         this.stats = this.generateStats();
         this.HP = this.convertStat('CON', 10);
         this.AP = this.convertStat('INI', 1);
@@ -51,11 +53,18 @@ export class Character {
     }
 
     updateStat(stat: CharacterStatsKeys, value: number): void {
-        this.stats[stat] = value;
-        for (const { key, stat: baseStat, multiplier } of this.statMultipliers) {
+        this.stats[stat] += value;
+        for (const { key, stat: baseStat, multiplier } of this.linkedStats) {
             if (stat === baseStat) {
                 this[key] = this.convertStat(baseStat, multiplier);
             }
+        }
+    }
+
+    private randomizeNameAndTitle(): { nameKey: number, titleKey: number } {
+        return {
+            nameKey: randomNumber(0, archetypeData[this.archetypeKey].name_list.length - 1),
+            titleKey: randomNumber(0, 9),
         }
     }
 
